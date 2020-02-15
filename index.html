@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html>
- <head>
-	<title>GAME LIST</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<meta charset="utf-8">
- </head>
- <body>
- 	<h1>GAME LIST</h1>
- 	<P>LISTE DE JEUX PAR CATEGORIES</P>
- 	<div class="scrollable">
-	    <ul class="main-list">
-	    	<li>
-	    		<a href="#"><strong>MMO</strong></a>
-	    		<ul>
-	    			<li>WORLD OF WARCRAFT</li>
-	    			<li>DOFUS</li>
-	    			<li>STARS WARS</li>
-	    		</ul>
-	    	</li>
 
-	    	<li>
-	    		<a href="#"><strong>FPS</strong></a>
-	    		<ul>
-	    			<li>CSGO</li>
-	    			<li>DESTINITY</li>
-	    			<li>MINECRAFT</li>
+<head>
+    <title>GAME LIST</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
 
-	    		</ul>
-	    	</li>
+<body>
+    <nav class="navbar navbar-dark bg-dark mb-4 shadow">
+        <a class="navbar-brand" href="#">Game List</a>
+    </nav>
+    <div class="container">
+        <div class="d-none" id="loader">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
 
-	    	<li>
-	    		<a href="#"><strong>STRATEGIE</strong></a>
-	    		<ul>
-	    			<li>CIVILIZATIONS</li>
-	    			<li>STARCRAFT</li>
-	    			<li>AGE OF EMPIRE</li>
-	    		</ul>
-	    	</li>
+        <div class="row">
+            <div class="col col-6">
+                <div class="list-group" id="category-list">
 
-	    	<li>
-	    		<a href="#"><strong>AVENTURE</strong></a>
-	    		<ul>
-	    			<li>RED DEAD REDEMPTION</li>
-	    			<li>STARS WARS</li>
-	    			<li>LUIGI MANSION</li>
-	    		</ul>
-	    	</li>     
-	    </ul>
- 	</div>
- </body>
- <script
-  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-  crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
- <script type="text/javascript" src="main.js"></script>
+                </div>
+            </div>
+            <div class="col col-6">
+                <div class="list-group" id="game-list">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ajouter un nouveau jeu</h5>
+                        <form class="card-text my-2" id="addGameForm">
+                            <div class="form-group">
+                                <label for="categoriesSelect">Catégorie</label>
+                                <select class="form-control" id="categoriesSelect">
+																</select>
+                            </div>
+                            <input type="text" name="gameTitle" id="gameTitle" placeholder="Titre" class="form-control">
+                        </form>
+                        <button class="btn btn-primary" id="addGame">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="main.js"></script>
+
 </html>

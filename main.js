@@ -1,115 +1,68 @@
-$(document).ready( function() {
-	let data = [];
+const categoryList = $('#category-list')
+const categoriesSelect = $('#categoriesSelect')
+const gameList = $('#game-list')
+let categories = []
 
-	async function afficherLeMenu(){
-		let response = await axios.get('http://localhost:3000/category')
-		let	data = response.data
-		let mainList = $('.main-list')
-		mainList.empty()
-		
-		let i = 0
-		while (i < data.length) {
-			let j = 0
-			let code = `<li><a href="#">${data[i].title}</a><ul>`
-			while (j < data[i].games.length) {
-				code += `<li><a href="${data[i].games[j].url}" target="_blank">${data[i].games[j].title}</a></li>`
-				j++
-			}
-			code = code + `</ul></li>`
-			mainList.append(code)
+function load(on) {
+    const loader = $('#loader')
+    if (on) {
+        loader.removeClass('d-none')
+    } else {
+        loader.addClass('d-none')
+    }
+}
 
-			i++
-		}
+async function updateGames() {
+    load(true)
+    try {
+        const response = await axios.get('http://localhost:3000/category')
+        categoryList.html('')
+        categories = response.data
 
+        for (const category of categories) {
+            categoryList.append(
+                `<button type="button" data-id="${category.id}" class="list-group-item list-group-item-action category-button">${category.title}</button>`
+            )
+            categoriesSelect.append(
+                `<option value="${category.id}">${category.title}</option>`
+            )
+        }
+        $('.category-button').on('click', function() {
+            gameList.html('')
+            $('.category-button').removeClass('active')
+            $(this).addClass('active')
 
-		$('ul.main-list > li > a').on('click', function() {
-			let parent = $(this).parent()
+            const categoryId = $(this).data('id')
+            const category = categories.find(item => item.id == categoryId)
+            for (const game of category.games) {
+                gameList.append(
+                    `<button type="button" data-id="${game.id}" class="list-group-item list-group-item-action game-button">${game.title}</button>`
+                )
+            }
+        })
+    } finally {
+        load(false)
+    }
+}
 
-			if (parent.hasClass('sous-menu')) {
-				parent.removeClass('sous-menu')
-			} else {
-				$('.sous-menu').removeClass('sous-menu')
-				parent.addClass('sous-menu')
-			}
-		})	
-	}
-	
-	$('#edit-form').submit(function(event) {
-	  event.preventDefault()
-	  const category = $(this).find('.categoryInsert').val()
-	  const game = $(this).find('.titleInsert').val()
+$(document).ready(async function() {
+    await updateGames()
 
-	  console.log(category, game)
-	})
+    $('#addGame').on('click', async function() {
+        const form = $('#addGameForm')
+        const categoryId = $('#categoriesSelect').val()
+        const gameTitle = $('#gameTitle').val()
+        const category = categories.find(item => item.id == categoryId)
+        category.games.push({ title: gameTitle })
+        gameList.html('')
 
-	$('input[value=Valider]').on('click', async function(event){
-		event.preventDefault();
-		
-		let response = await axios.get('http://localhost:3000/category')
-		let	data = response.data
+        try {
+            load(true)
+            await axios.put(`http://localhost:3000/category/${categoryId}`, category)
+        } finally {
+            load(false)
+        }
 
-		const categoryFormulaire = $('.categoryInsert').val()
-		const urlFormulaire = $(".urlInsert").val()
-		const gameFormulaire = $(".titleInsert").val()
-
-		let postData = {
-			id: data.length + 1,
-			title: categoryFormulaire,
-			games: [
-			{
-				title: gameFormulaire,
-				url: urlFormulaire,
-			}
-			]
-		}
-
-		await axios.post('http://localhost:3000/category', postData)
-
-		afficherLeMenu();
-	});	
-
-
-	$('input[value=Supprimer]').on('click', async function(event){
-		event.preventDefault();
-
-		const categoryFormulaire = $('.categoryInsert').val()
-		const urlFormulaire = $(".urlInsert").val()
-		const gameFormulaire = $(".titleInsert").val()
-
-		let response = await axios.get('http://localhost:3000/category')
-		let data = response.data
-
-		let categoryTrouve = undefined;
-		let i = 0;
-
-		while(i < data.length){
-			if (data[i].title == categoryFormulaire){
-				categoryTrouve = data[i];
-			}
-
-			i++;
-		}
-
-		i = 0;
-
-		while(i < categoryTrouve.games.length){
-			if(categoryTrouve.games[i].title == gameFormulaire){
-				categoryTrouve.games.splice(i, 1);
-	
-			}
-			i++;
-		}
-
-		if(categoryTrouve.games.length == 0){
-			axios.delete("http://localhost:3000/category/" + categoryTrouve.id);
-		}else{
-			axios.put("http://localhost:3000/category/" + categoryTrouve.id, categoryTrouve);
-		}
-
-		afficherLeMenu();
-	});
-
-	afficherLeMenu()
-
+        await updateGames()
+    })
 })
-              

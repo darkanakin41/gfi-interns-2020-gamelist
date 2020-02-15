@@ -1,72 +1,66 @@
 {
-  "category": [
-    {
-      "id": 1,
-      "title": "MMO",
-      "games": [
-        {
-          "title": "WORLD OF WARCRAFT",
-          "url": "https://worldofwarcraft.com/fr-fr/"
+    "category": [{
+            "id": 1,
+            "title": "MMO",
+            "games": [{
+                    "title": "WORLD OF WARCRAFT",
+                    "url": "https://worldofwarcraft.com/fr-fr/"
+                },
+                {
+                    "title": "DOFUS",
+                    "url": "https://www.dofus.com/fr"
+                },
+                {
+                    "title": "STARS WARS",
+                    "url": "https://www.ea.com/fr-fr/games/starwars"
+                }
+            ]
         },
         {
-          "title": "DOFUS",
-          "url": "https://www.dofus.com/fr"
+            "id": 2,
+            "title": "FPS",
+            "games": [{
+                    "title": "CSGO",
+                    "url": "https://www.gloot.com/csgo/landing?utm_source=google&utm_medium=SEM&utm_campaign=broad&gclid=CjwKCAiAhJTyBRAvEiwAln2qB0_4HU00ITrIgQLxVm-kfttu4jzLUCmB4ctPIUO_obNmZIzrmfcbthoCGK8QAvD_BwE"
+                },
+                {
+                    "title": "DESTINITY",
+                    "url": "https://www.bungie.net/fr"
+                },
+                {
+                    "title": "MINECRAFT",
+                    "url": "https://www.minecraft.net"
+                }
+            ]
         },
         {
-          "title": "STARS WARS",
-          "url": "https://www.ea.com/fr-fr/games/starwars"
+            "id": 3,
+            "title": "Stratégie",
+            "games": [{
+                    "title": "CIVILIZATIONS",
+                    "url": "https://civilization.com/fr-FR/"
+                },
+                {
+                    "title": "STARCRAFT",
+                    "url": "https://starcraft2.com/fr-fr/"
+                },
+                {
+                    "title": "AGE OF EMPIRE",
+                    "url": "https://www.ageofempires.com/"
+                },
+                {
+                    "title": "AGE OF MYTHOLOGY",
+                    "url": "https://www.ageofempires.com/games/aom/"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Aventure",
+            "games": [{
+                "title": "STAR WARS ",
+                "url": ""
+            }]
         }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "FPS",
-      "games": [
-        {
-          "title": "CSGO",
-          "url": "https://www.gloot.com/csgo/landing?utm_source=google&utm_medium=SEM&utm_campaign=broad&gclid=CjwKCAiAhJTyBRAvEiwAln2qB0_4HU00ITrIgQLxVm-kfttu4jzLUCmB4ctPIUO_obNmZIzrmfcbthoCGK8QAvD_BwE"
-        },
-        {
-          "title": "DESTINITY",
-          "url": "https://www.bungie.net/fr"
-        },
-        {
-          "title": "MINECRAFT",
-          "url": "https://www.minecraft.net"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Stratégie",
-      "games": [
-        {
-          "title": "CIVILIZATIONS",
-          "url": "https://civilization.com/fr-FR/"
-        },
-        {
-          "title": "STARCRAFT",
-          "url": "https://starcraft2.com/fr-fr/"
-        },
-        {
-          "title": "AGE OF EMPIRE",
-          "url": "https://www.ageofempires.com/"
-        },
-        {
-          "title": "AGE OF MYTHOLOGY",
-          "url": "https://www.ageofempires.com/games/aom/"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Aventure",
-      "games": [
-        {
-          "title": "STAR WARS ",
-          "url": ""
-        }
-      ]
-    }
-  ]
+    ]
 }
