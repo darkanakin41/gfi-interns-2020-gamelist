@@ -1,51 +1,61 @@
+
 body {
-	color: black;
-	background-image: url(../img/D.jpg);
-	background-size: 100% 100%;
-	background-attachment: fixed;
+    --red: #D74B4B;
+    --yellow: #DEDE00;
+    --orange: #E18314;
+    --green: #0D875E;
+    --blue: #1D75D7;
+    --purple: #7D3DAF;
+    --white: #FFFFFF;
+    --grey: #333333;
+    --black: #000000;
+
+    --header-background: #37474F;
+
+    background-image: url(../img/D.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+    color: var(--black);
+    font-family: "Roboto Slab", Roboto, sans-serif;
+
+    padding: 0;
+    margin: 0;
 }
 
-.scrollable {
-	overflow:auto;
-	border:#000000 3px solid;
-	width: 300px;
-	color: black;
-}
-h1{
-	text-align: center;
-}
-p{
-	text-align: center;
-}
-.scrollable > ul > li > ul {
-	display : none;
+header {
+    background: var(--header-background);
+    color: var(--white);
+
+    padding: 2.5rem;
 }
 
-.scrollable > ul > li.sous-menu > ul {
-	display : block;
+header h1.site-name {
+    padding: 0;
+    margin: 0;
+
+    font-size: 3rem;
+    text-align: center;
 }
 
-input:invalid {
-  background-color: #ffdddd;
+#navigation {
+    width: 50%;
+    background: rgba(0, 0, 0, .2);
 }
 
-
-input:valid {
-  background-color: #4caf50;
-  border:none;
-
-}
-  
-input:required {
-  border:none;
+#navigation a {
+    color: var(--white);
+    opacity: .7;
 }
 
-input:required:valid {
-   border:none;
+#navigation a:hover {
+    opacity: 1;
 }
 
-input[value=Supprimer] {
-	background-color: #f44336;
-	 border:none;
-
+h2.section-title{
+    text-align: center;
+    color: var(--grey);
+    opacity: .85;
+    font-size : 1.5rem;
+    padding : 1rem 1.4rem;
 }

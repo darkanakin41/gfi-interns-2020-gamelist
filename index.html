@@ -1,58 +1,49 @@
 <!DOCTYPE html>
 <html>
- <head>
-	<title>GAME LIST</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<meta charset="utf-8">
- </head>
- <body>
- 	<h1>GAME LIST</h1>
- 	<P>LISTE DE JEUX PAR CATEGORIES</P>
- 	<div class="scrollable">
-	    <ul class="main-list">
-	    	<li>
-	    		<a href="#"><strong>MMO</strong></a>
-	    		<ul>
-	    			<li>WORLD OF WARCRAFT</li>
-	    			<li>DOFUS</li>
-	    			<li>STARS WARS</li>
-	    		</ul>
-	    	</li>
+<head>
+  <title>GAME LIST</title>
 
-	    	<li>
-	    		<a href="#"><strong>FPS</strong></a>
-	    		<ul>
-	    			<li>CSGO</li>
-	    			<li>DESTINITY</li>
-	    			<li>MINECRAFT</li>
-
-	    		</ul>
-	    	</li>
-
-	    	<li>
-	    		<a href="#"><strong>STRATEGIE</strong></a>
-	    		<ul>
-	    			<li>CIVILIZATIONS</li>
-	    			<li>STARCRAFT</li>
-	    			<li>AGE OF EMPIRE</li>
-	    		</ul>
-	    	</li>
-
-	    	<li>
-	    		<a href="#"><strong>AVENTURE</strong></a>
-	    		<ul>
-	    			<li>RED DEAD REDEMPTION</li>
-	    			<li>STARS WARS</li>
-	    			<li>LUIGI MANSION</li>
-	    		</ul>
-	    	</li>     
-	    </ul>
- 	</div>
- </body>
- <script
-  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-  crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
- <script type="text/javascript" src="main.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.6.1/css/foundation.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab|Roboto">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="utf-8">
+</head>
+<body>
+<header>
+  <h1 class="site-name">Game List</h1>
+</header>
+<div class="grid-x">
+  <div class="cell small-6" id="navigation">
+    <h2 class="section-title">
+      Affichage des jeux par catégorie
+    </h2>
+  </div>
+  <div class="cell small-6" id="content">
+    <form id="edit-form">
+      <h2 class="section-title">
+        Gérer les jeux
+      </h2>
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-12">
+          <input type="text" name="category" placeholder="Catégorie..." required maxlength="20" class="categoryInsert">
+        </div>
+        <div class="cell small-12">
+          <input type="text" name="games" placeholder="Jeu..." required class="titleInsert">
+        </div>
+        <div class="cell small-12">
+          <input type="text" name="url" placeholder="Adresse..." required class="urlInsert">
+        </div>
+        <div class="cell small-12 text-center">
+          <input type="submit" value="Valider" class="button success">
+          <input type="submit" value="Supprimer" class="button alert">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.1/js/foundation.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
 </html>
