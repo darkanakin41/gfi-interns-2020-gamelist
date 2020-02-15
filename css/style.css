@@ -1,0 +1,51 @@
+body {
+	color: black;
+	background-image: url(../img/D.jpg);
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+.scrollable {
+	overflow:auto;
+	border:#000000 3px solid;
+	width: 300px;
+	color: black;
+}
+h1{
+	text-align: center;
+}
+p{
+	text-align: center;
+}
+.scrollable > ul > li > ul {
+	display : none;
+}
+
+.scrollable > ul > li.sous-menu > ul {
+	display : block;
+}
+
+input:invalid {
+  background-color: #ffdddd;
+}
+
+
+input:valid {
+  background-color: #4caf50;
+  border:none;
+
+}
+  
+input:required {
+  border:none;
+}
+
+input:required:valid {
+   border:none;
+}
+
+input[value=Supprimer] {
+	background-color: #f44336;
+	 border:none;
+
+}
